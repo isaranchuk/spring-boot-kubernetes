@@ -1,2 +1,2 @@
 # spring-boot-kubernetes
-Getting started Spring Boot ad Kubernetes
+Getting started with Spring Boot and Kubernetes
