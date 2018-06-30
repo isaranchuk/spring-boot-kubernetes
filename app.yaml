@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp11-svc
+  name: webapp1-svc
   labels:
     app: webapp1
 spec:
   type: NodePort
   ports:
   - port: 8080
-    nodePort: 8080
+    nodePort: 32555
   selector:
     app: webapp1
 ---
@@ -17,6 +17,9 @@ kind: Deployment
 metadata:
   name: webapp1
 spec:
+  selector:
+    matchLabels:
+      app: webapp1
   replicas: 1
   template:
     metadata:
@@ -26,5 +29,6 @@ spec:
       containers:
       - name: webapp1
         image: spring-boot-kubernetes:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
